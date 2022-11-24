@@ -40,7 +40,7 @@ CREATE TABLE `cars` (
 
 LOCK TABLES `cars` WRITE;
 /*!40000 ALTER TABLE `cars` DISABLE KEYS */;
-INSERT INTO `cars` VALUES (1,'audi a5',0,1),(2,'skoda octavia',0,1),(3,'bmw x3',0,1);
+INSERT INTO `cars` VALUES (1,'audi a5',0,0),(2,'skoda octavia',0,0),(3,'bmw x3',0,0),(4,'tesla roadstar',0,1),(5,'seat ibizia',0,1);
 /*!40000 ALTER TABLE `cars` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -65,7 +65,7 @@ CREATE TABLE `customers` (
 
 LOCK TABLES `customers` WRITE;
 /*!40000 ALTER TABLE `customers` DISABLE KEYS */;
-INSERT INTO `customers` VALUES (1,'Miranda Wilkins'),(2,'Maryam Rosario'),(3,'Anabelle Oneil');
+INSERT INTO `customers` VALUES (1,'Miranda Wilkins'),(2,'Maryam Rosario'),(3,'Anabelle Oneil'),(4,'Steven Shepard'),(5,'Susan Treebon');
 /*!40000 ALTER TABLE `customers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -81,6 +81,7 @@ CREATE TABLE `rental` (
   `customer_id` int NOT NULL,
   `car_id` int NOT NULL,
   `kilometers` int NOT NULL,
+  `active` tinyint NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `car_id_idx` (`car_id`),
@@ -96,6 +97,7 @@ CREATE TABLE `rental` (
 
 LOCK TABLES `rental` WRITE;
 /*!40000 ALTER TABLE `rental` DISABLE KEYS */;
+INSERT INTO `rental` VALUES (1,1,1,250,1),(2,2,2,100,1),(3,3,3,200,1);
 /*!40000 ALTER TABLE `rental` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

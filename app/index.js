@@ -1,12 +1,13 @@
 import express, { json, urlencoded } from "express";
 import dotenv from "dotenv";
+import cors from "cors";
 import customerRouter from "./routes/customerRouter.js";
 import carRouter from "./routes/carRouter.js";
 import rentalRouter from "./routes/rentalRouter.js";
 
 const app = express();
 dotenv.config();
-const port = process.env.NODE_DOCKER_PORT || 8080;
+const port = process.env.NODE_DOCKER_PORT || 6868;
 
 app.use(json());
 app.use(
@@ -14,6 +15,7 @@ app.use(
     extended: true,
   })
 );
+app.use(cors());
 
 app.get("/", (req, res) => {
   res.json({ message: "ok" });
